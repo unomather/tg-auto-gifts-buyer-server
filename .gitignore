@@ -44,4 +44,5 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-**/serviceAccountKey.json
+# Firebase service account key
+server/src/main/resources/serviceAccountKey.json
