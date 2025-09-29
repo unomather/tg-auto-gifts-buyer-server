@@ -1,23 +1,23 @@
 plugins {
-    alias(libs.plugins.kotlinJvm)
-    alias(libs.plugins.ktor)
     application
+    alias(libs.plugins.ktor)
+    alias(libs.plugins.kotlinJvm)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 group = "com.unomather.tgifts"
 version = "1.0.0"
 application {
-    mainClass.set("com.unomather.tgifts.ApplicationKt")
-    
+    mainClass.set("com.unomather.tgifts.server.ApplicationKt")
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
 
 dependencies {
-    
-    implementation(libs.logback)
-    implementation(libs.ktor.serverCore)
-    implementation(libs.ktor.serverNetty)
-    testImplementation(libs.ktor.serverTestHost)
-    testImplementation(libs.kotlin.testJunit)
+    implementation(libs.bundles.base)
+    implementation(libs.bundles.database)
+    implementation(libs.bundles.coroutines)
+    implementation(libs.bundles.koin)
+    implementation(libs.bundles.server)
+    implementation(libs.bundles.cryptography)
 }
