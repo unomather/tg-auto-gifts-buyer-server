@@ -19,5 +19,6 @@ dependencies {
     implementation(libs.bundles.coroutines)
     implementation(libs.bundles.koin)
     implementation(libs.bundles.server)
+    implementation(libs.bundles.firebase)
     implementation(libs.bundles.cryptography)
 }

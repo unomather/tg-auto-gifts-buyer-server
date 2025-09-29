@@ -1,6 +1,7 @@
 package com.unomather.tgifts.server.plugins
 
 import com.unomather.tgifts.database.di.moduleDatabase
+import com.unomather.tgifts.firebase.di.moduleFirebase
 import com.unomather.tgifts.server.di.moduleRouting
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
@@ -17,5 +18,6 @@ internal fun Application.setupKoin() {
 
 private val allModules = listOf(
     moduleRouting,
-    moduleDatabase
+    moduleDatabase,
+    moduleFirebase
 )

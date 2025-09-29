@@ -19,5 +19,5 @@ class GetUserRoutingImpl(
         route.registerRoute()
     }
 
-    override suspend fun process(data: UserIdRequest) = getUserUseCase.invoke(data)
+    override suspend fun process(call: RoutingCall, data: UserIdRequest) = getUserUseCase.invoke(data)
 }

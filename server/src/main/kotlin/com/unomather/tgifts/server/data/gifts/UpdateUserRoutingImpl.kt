@@ -19,7 +19,7 @@ class UpdateUserRoutingImpl(
         route.registerRoute()
     }
 
-    override suspend fun process(data: User): Success {
+    override suspend fun process(call: RoutingCall, data: User): Success {
         updateUserUseCase.invoke(data)
         return Success()
     }

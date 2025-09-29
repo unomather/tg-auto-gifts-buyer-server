@@ -17,7 +17,7 @@ abstract class BasePostRoute<Request : Any, Response : Any>(
 ) : BaseRoute<Response>(
     responseSerializer = responseSerializer
 ) {
-    protected abstract suspend fun process(data: Request): Response
+    protected abstract suspend fun process(call: RoutingCall, data: Request): Response
 
     override fun Route.registerRoute() {
         post(route.route) {
@@ -32,7 +32,7 @@ abstract class BasePostRoute<Request : Any, Response : Any>(
         val stringResuest = call.receive<String>()
         runCatching {
             val requestData = json.decodeFromString(string = stringResuest, deserializer = requestSerializer)
-            val responseData = process(requestData)
+            val responseData = process(call, requestData)
             json.encodeToString(value = responseData, serializer = responseSerializer)
         }.onSuccess { responseString ->
             call.respond(responseString)
