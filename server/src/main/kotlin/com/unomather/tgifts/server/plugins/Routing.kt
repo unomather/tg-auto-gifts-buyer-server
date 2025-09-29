@@ -7,6 +7,10 @@ import io.ktor.server.routing.routing
 import org.koin.ktor.ext.inject
 
 internal fun Application.setupRouting() {
+    setupGiftsRouting()
+}
+
+private fun Application.setupGiftsRouting() {
     val getUserRouting by inject<GetUserRouting>()
     val updateUserRouting by inject<UpdateUserRouting>()
     routing {
