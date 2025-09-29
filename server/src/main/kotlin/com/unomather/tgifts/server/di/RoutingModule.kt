@@ -1,15 +1,18 @@
 package com.unomather.tgifts.server.di
 
-import com.unomather.tgifts.server.data.GetUserRoutingImpl
-import com.unomather.tgifts.server.data.UpdateUserRoutingImpl
-import com.unomather.tgifts.server.domain.GetUserRouting
-import com.unomather.tgifts.server.domain.UpdateUserRouting
+import com.unomather.tgifts.server.data.gifts.GetUserRoutingImpl
+import com.unomather.tgifts.server.data.gifts.UpdateUserRoutingImpl
+import com.unomather.tgifts.server.domain.gifts.user.GetUserRouting
+import com.unomather.tgifts.server.domain.gifts.user.UpdateUserRouting
 import kotlinx.serialization.json.Json
 import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
 
 val moduleRouting = module {
+    /**
+     * BASE
+     */
     factory {
         Json {
             isLenient = true
@@ -17,6 +20,9 @@ val moduleRouting = module {
             ignoreUnknownKeys = true
         }
     }
+    /**
+     * GIFTS
+     */
     factoryOf(::GetUserRoutingImpl) { bind<GetUserRouting>() }
     factoryOf(::UpdateUserRoutingImpl) { bind<UpdateUserRouting>() }
 }

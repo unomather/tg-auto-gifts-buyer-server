@@ -1,7 +1,6 @@
 package com.unomather.tgifts.server.data.base
 
 import io.ktor.http.*
-import io.ktor.server.plugins.origin
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -9,7 +8,7 @@ import kotlinx.serialization.KSerializer
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerializationException
 import javax.crypto.AEADBadTagException
-import com.unomather.tgifts.server.domain.routes.Route as AppRoute
+import com.unomather.tgifts.server.domain.BaseRoute as AppRoute
 
 abstract class BasePostRoute<Request : Any, Response : Any>(
     private val route: AppRoute,
